@@ -192,7 +192,7 @@ export async function generateWorksheet(input: GenerateWorksheetInput): Promise<
       15. Validation: Ensure all measurements and angles are mathematically correct`;
 
       const { media } = await ai.generate({
-        model: 'googleai/gemini-2.0-flash-preview-image-generation',
+        model: 'googleai/gemini-2.5-flash-preview-image-generation',
         prompt: enhancedPrompt,
         config: {
           responseModalities: ['TEXT', 'IMAGE'],
@@ -252,7 +252,7 @@ export async function generateGoldWorksheet(input: GenerateWorksheetInput): Prom
       15. Validation: Ensure all measurements and angles are mathematically correct`;
 
       const { media } = await ai.generate({
-        model: 'googleai/gemini-2.0-flash-preview-image-generation',
+        model: 'googleai/gemini-2.5-flash-preview-image-generation',
         prompt: enhancedPrompt,
         config: {
           responseModalities: ['TEXT', 'IMAGE'],
