@@ -24,16 +24,18 @@ const nextConfig: NextConfig = {
     '@genkit-ai/next',
     '@genkit-ai/firebase',
   ],
-  webpack: (config, { isServer }) => {
+  webpack: (config, { isServer, webpack }) => {
     if (isServer) {
-      // Provide empty module fallbacks for optional dependencies
-      // that genkit/opentelemetry reference but aren't installed
-      config.resolve = config.resolve || {};
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        '@opentelemetry/exporter-jaeger': false,
-        '@genkit-ai/firebase': false,
-      };
+      // Use IgnorePlugin to completely skip resolution of optional
+      // dependencies that genkit/opentelemetry reference but aren't installed
+      config.plugins.push(
+        new webpack.IgnorePlugin({
+          resourceRegExp: /^@opentelemetry\/exporter-jaeger$/,
+        }),
+        new webpack.IgnorePlugin({
+          resourceRegExp: /^@genkit-ai\/firebase$/,
+        }),
+      );
     }
     return config;
   },
