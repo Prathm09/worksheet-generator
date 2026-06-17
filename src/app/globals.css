@@ -1,0 +1,284 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 215 20% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 20% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 20% 15%;
+    --primary: 220 85% 55%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 210 15% 96%;
+    --secondary-foreground: 215 20% 25%;
+    --muted: 210 15% 95%;
+    --muted-foreground: 215 10% 50%;
+    --accent: 140 75% 50%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 20% 90%;
+    --input: 210 20% 92%;
+    --ring: 220 85% 55%;
+    --chart-1: 220 85% 55%;
+    --chart-2: 140 75% 50%;
+    --chart-3: 35 85% 60%;
+    --chart-4: 270 70% 65%;
+    --chart-5: 15 80% 65%;
+    --radius: 0.75rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 220 85% 55%;
+    
+    /* Educational theme colors */
+    --education-blue: 220 85% 55%;
+    --education-green: 140 75% 50%;
+    --education-orange: 35 85% 60%;
+    --education-purple: 270 70% 65%;
+    --success: 140 75% 50%;
+    --warning: 35 85% 60%;
+    --info: 220 85% 55%;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 217 89% 61%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 274 100% 50%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 217 89% 61%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv01", "cv03", "cv04";
+  }
+  @media print {
+    body {
+      background: white;
+    }
+    .printable-area {
+      box-shadow: none !important;
+      border: none !important;
+    }
+  }
+}
+
+@layer components {
+  /* Educational UI Components */
+  .education-card {
+    @apply bg-gradient-to-br from-white to-blue-50/30 border-2 border-blue-100 shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+  
+  .difficulty-easy {
+    @apply bg-green-50 text-green-700 border-green-200;
+  }
+  
+  .difficulty-medium {
+    @apply bg-yellow-50 text-yellow-700 border-yellow-200;
+  }
+  
+  .difficulty-hard {
+    @apply bg-red-50 text-red-700 border-red-200;
+  }
+  
+  .grade-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 border border-blue-200;
+  }
+  
+  .subject-badge {
+    @apply inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-purple-100 text-purple-800;
+  }
+  
+  
+  .math-expression {
+    @apply font-mono text-lg leading-relaxed;
+  }
+  
+  .educational-header {
+    @apply bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent;
+  }
+  
+  .floating-animation {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .pulse-glow {
+    @apply animate-pulse shadow-lg shadow-blue-200/50;
+  }
+  
+  /* Educational Animation Classes */
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  .slide-in-right {
+    animation: slideInRight 0.5s ease-out;
+  }
+  
+  .math-pulse {
+    animation: mathPulse 2s ease-in-out infinite;
+  }
+  
+  .math-float {
+    animation: mathFloat 12s ease-in-out infinite;
+  }
+  
+  .bounce-in {
+    animation: bounceIn 0.8s ease-out;
+  }
+  
+  
+  /* Educational Background Patterns */
+  .math-pattern-bg {
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 2px, transparent 2px),
+      radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.1) 2px, transparent 2px),
+      radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.1) 1px, transparent 1px);
+    background-size: 60px 60px, 80px 80px, 40px 40px;
+    background-position: 0 0, 30px 30px, 0 0;
+  }
+  
+  .educational-gradient {
+    background: linear-gradient(135deg, 
+      rgba(59, 130, 246, 0.1) 0%, 
+      rgba(139, 92, 246, 0.1) 50%, 
+      rgba(16, 185, 129, 0.1) 100%);
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+  
+  .educational-border {
+    border: 2px solid;
+    border-image: linear-gradient(45deg, #3B82F6, #8B5CF6, #10B981) 1;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .glass-effect {
+    @apply bg-white/80 backdrop-blur-sm border border-white/20;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes mathPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes mathFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateY(-30px) rotate(8deg) scale(1.1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-15px) rotate(-5deg) scale(0.95);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-25px) rotate(3deg) scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
